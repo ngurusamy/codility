@@ -39,20 +39,15 @@ int solution(string &S, vector<int> & X, vector<int> & Y) {
         } else {
             
             itr = std::find(tags.begin(), tags.end(), S.at(i));
-            //std::vector<char>::iterator itr = std::find(tags.begin(), tags.end(), S.at(i));
-            
-            //std::cout << "TAG : " << S.at(i) << "\n";
             
             if (itr != tags.end()) {
                 int idx = std::distance(tags.begin(), itr);
                 tmp = sqrt((X[i] * X[i]) + (Y[i] * Y[i]));
                 tmp = std::max(tmp, tagsDis[idx]);
                 maxDis = std::max(maxDis, tmp);
-                //std::cout << " NOT ! : " << maxDis << " :: Dis " << tmp << "\n";
                 tagsDis.push_back(tmp);
             } else {
                 int tmpDis = sqrt((X[i] * X[i]) + (Y[i] * Y[i]));
-                //std::cout << " I : " << i << " :: Dis : " << tmpDis << " :: Max Dis : "  << maxDis << " \n";
                 tags.push_back(S.at(i));
                 noOfPoints++;
             }
@@ -68,7 +63,6 @@ int solution(string &S, vector<int> & X, vector<int> & Y) {
         }
     }
     
-    //std::cout<< "TAGS SIZE : " << tags.size() << "\n";
     return noOfPoints;
 }
 
